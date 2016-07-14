@@ -556,12 +556,13 @@ if ( ! function_exists( 'spacious_entry_meta' ) ) :
  * Shows meta information of post.
  */
 function spacious_entry_meta() {
+   if ( is_sticky() ) { /* no meta footer for sticky posts */
+      return;
+   }
    if ( 'post' == get_post_type() ) :
       echo '<footer class="entry-meta-bar clearfix">';
       echo '<div class="entry-meta clearfix">';
       ?>
-
-      <span class="by-author author vcard"><a class="url fn n" href="<?php echo get_author_posts_url( get_the_author_meta( 'ID' ) ); ?>"><?php the_author(); ?></a></span>
 
       <?php
       $time_string = '<time class="entry-date published" datetime="%1$s">%2$s</time>';
@@ -579,10 +580,6 @@ function spacious_entry_meta() {
          esc_attr( get_the_time() ),
          $time_string
       ); ?>
-
-      <?php if( has_category() ) { ?>
-         <span class="category"><?php the_category(', '); ?></span>
-      <?php } ?>
 
       <?php if ( comments_open() ) { ?>
          <span class="comments"><?php comments_popup_link( __( 'No Comments', 'spacious' ), __( '1 Comment', 'spacious' ), __( '% Comments', 'spacious' ), '', __( 'Comments Off', 'spacious' ) ); ?></span>

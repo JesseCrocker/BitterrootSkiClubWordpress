@@ -12,7 +12,7 @@
 	<?php do_action( 'spacious_before_post_content' ); ?>
 
 	<?php
-	if( !is_single() ) {
+	if( !is_single() && !is_sticky() ) {
 	?>
 	<header class="entry-header">
 	<h2 class="entry-title">
