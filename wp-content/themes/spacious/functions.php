@@ -161,3 +161,9 @@ $spacious_version = $theme['Version'];
 if ( is_admin() ) {
 	require get_template_directory() . '/inc/admin/class-spacious-admin.php';
 }
+
+add_filter( 'get_previous_post_where', 'so16495117_mod_adjacent' );
+add_filter( 'get_next_post_where', 'so16495117_mod_adjacent' );
+function so16495117_mod_adjacent( $where ) {
+    return $where . ' AND p.ID NOT IN (' . implode( ',', get_option( 'sticky_posts' ) ) . ' )';
+}
