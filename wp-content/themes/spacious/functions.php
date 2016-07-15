@@ -77,7 +77,7 @@ function spacious_setup() {
 	) );
 
 	// Cropping the images to different sizes to be used in the theme
-	add_image_size( 'featured-blog-large', 750, 350, true );
+	add_image_size( 'featured-blog-large', 1024, 9999, true );
 	add_image_size( 'featured-blog-medium', 270, 270, true );
 	add_image_size( 'featured', 642, 300, true );
 	add_image_size( 'featured-blog-medium-small', 230, 230, true );

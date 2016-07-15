@@ -2027,3 +2027,7 @@ a#scroll-up:hover {
 .date .updated {
   display: none;
 }
+
+img.attachment-featured-blog-large {
+    max-width:605px;
+}

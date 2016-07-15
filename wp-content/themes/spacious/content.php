@@ -44,7 +44,11 @@
 
 	<div class="entry-content clearfix">
 		<?php
-			the_excerpt();
+                        if( is_sticky() ) {
+                            the_content();
+                        } else {
+			    the_excerpt();
+                        }
 		?>
 	</div>
 
